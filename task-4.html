@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8">
+  <meta name="description" content="task number four">
+  <meta name="keywords" content="senla, React, Redux, task4">
+  <meta name="author" content="kulakov valery">
+  <title>task 4</title>
+  <link rel="stylesheet" href="style.css">
+	<header>
+    <h1>Task 4</h1>
+		<h2>For React + Redux courses</h2>
+  </header>
+  <main>
+		<div class="note">Go to the developer's <i>console</i> for testing</div>
+		<script>
+			"use strict";
+      var arr = inputArr( );
+			var size = checkSize( ); //cheking the inputed value for number
+			
+			//calling the function for task 4
+			console.log( getDimensionalArray( arr, size ) );
+
+			function getDimensionalArray( array, size ) {
+				var twoDimArr = [];
+				var i = 0;
+				var l = array.length / size; //number of subarrays
+				while ( i<l ) {
+					twoDimArr[i] = array.slice( i*size, i*size+size );
+					i++;
+				}
+				return twoDimArr;
+			}
+			
+			// secondary functions - inputing arrays and size for dividing
+      function inputArr( ) {
+				var str = prompt( 'Input the array if you wish:' , '0 1 2 3 4 5' );
+				var arrStr = str.split(' ');
+        return arrStr;
+      }
+			
+			function checkSize( ) {
+				var n = Number( prompt( 'Input the size for dividing:', 3 ) );
+				if ( isNaN(n) ) {
+					alert( 'You must input a number as value. 3 for example...' );
+					return 3;
+				}
+        return n;
+      }
+    </script>
+  </main>
+  <footer>
+    <p>developed by kulakov valery</p>
+  </footer>
+</html>

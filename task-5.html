@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8">
+  <meta name="description" content="task number five">
+  <meta name="keywords" content="senla, React, Redux, task5">
+  <meta name="author" content="kulakov valery">
+  <title>task 5</title>
+	<link rel="stylesheet" href="style.css">
+  <header>
+    <h1>Task 5</h1>
+		<h2>For React + Redux courses</h2>
+  </header>
+  <main>
+		<div class="note">Go to the developer's <i>console</i> for testing</div>
+		<script>
+			"use strict";
+      var arr = inputArr( );
+			var a = checkNum( ); //cheking the inputed value for number
+			
+			//calling the function for task 5
+			console.log( getLowerestIndex( arr, a ) );
+
+      
+			function getLowerestIndex( array, num ) {
+				for ( var i=0; i<array.length; i++ ) {
+					if ( num<=array[i] ) return i;
+				}
+				return array.length;
+			}
+			
+			// secondary functions - inputing arrays and size for dividing
+      function inputArr( ) {
+				var str = prompt( 'Input the array if you wish:' , '1 2 3 4' );
+				var arrStr = str.split(' ');
+        return arrStr;
+      }
+			
+			function checkNum( ) {
+				var n = Number( prompt( 'Input the size for dividing:', 1.5 ) );
+				if ( isNaN(n) ) {
+					alert( 'You must input a number as value. 1.5 for example...' );
+					return 1.5;
+				}
+        return n;
+      }
+    </script>
+  </main>
+  <footer>
+    <p>developed by kulakov valery</p>
+  </footer>
+</html>

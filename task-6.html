@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8">
+  <meta name="description" content="task number six">
+  <meta name="keywords" content="senla, React, Redux, task6">
+  <meta name="author" content="kulakov valery">
+  <title>task 6</title>
+	<link rel="stylesheet" href="style.css">
+  <header>
+    <h1>Task 6</h1>
+		<h2>For React + Redux courses</h2>
+  </header>
+  <main>
+		<div class="note">Go to the developer's <i>console</i> for testing</div>
+		<script>
+			"use strict";
+      var arr = inputArr( );
+			var c = checkChar( );
+			
+			//calling the function for task 6
+			console.log( frame(arr, c) );
+
+      
+			function frame( array, ch ) {
+				var wordsLens = array.map( function( word ) { return word.length } );
+				var maxLen = wordsLens.reduce( function( max, current ) { return current>max ? current : max; } );
+				var horizontalBorder = new Array( maxLen+5 ).join( ch );
+				var frame = horizontalBorder + '\n'; // starting frame
+				array.forEach( function( item ) {
+					item += new Array( maxLen - item.length + 1 ).join( ' ' ); // lines alignment
+					frame += ch + ' ' + item + ' ' + ch + '\n';
+				});
+				frame += horizontalBorder;
+				return frame;
+			}
+			
+			// secondary functions - inputing arrays and checking simbols
+      function inputArr( ) {
+				var str = prompt( 'Input words:', 'Create a frame' );
+				var arrStr = str.split(' ');
+        return arrStr;
+      }
+			
+			function checkChar( ) {
+				var c = prompt( 'Input the simbol', '+' );
+				if ( c.length>1 ) {
+					alert( 'You must input only one simbol. \'+\', for example...' );
+					return '+';
+				}
+        return c;
+      }
+    </script>
+  </main>
+  <footer>
+    <p>developed by kulakov valery</p>
+  </footer>
+</html>

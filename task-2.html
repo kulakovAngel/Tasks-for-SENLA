@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8">
+  <meta name="description" content="task number two">
+  <meta name="keywords" content="senla, React, Redux, task2">
+  <meta name="author" content="kulakov valery">
+  <title>task 2</title>
+	<link rel="stylesheet" href="style.css">
+  <style>
+    #wrapper {
+      display: flex;
+			padding: 10px;
+    }
+    .cell {
+      width: 40px;
+      height: 15px;
+      margin: 4px;
+    }
+  </style>
+  <header>
+    <h1>Task 2</h1>
+		<h2>For React + Redux courses</h2>
+  </header>
+  <main>
+    <input type="text" id="fld">
+    <input type="submit" id="bttn">
+    <div id="wrapper"></div>
+    
+		<script>
+			"use strict";
+			var button = document.getElementById( 'bttn' );
+      button.onclick = createMatrix;
+
+      function createMatrix( ) {
+        var n = check( ); //cheking the inputed value
+        var parent = document.getElementById( 'wrapper' );
+        var cols = parent.getElementsByClassName( 'col' );
+				
+				//removing old matrix, if exists
+				while ( cols.length > 0 ) {
+					parent.removeChild( cols[0] );
+				}
+				
+				//creating new matrix
+        for ( var i=1; i<=n; i++ ) {
+          createColumn( parent, n );
+        }
+			}
+      
+      function check( ) {
+        var field = document.getElementById( 'fld' );
+        var n = Number( field.value );
+        if ( (n<0) || (n>30) ) {
+          alert( 'Please, input a value from 0 to 30!' );
+          field.value = '10';
+          return 0;
+        } else return n;
+      }
+      
+      function createColumn( parentElement, n ) {
+        var clmn = document.createElement( 'div' );
+				clmn.className = 'col';
+        parentElement.appendChild( clmn );
+				//creating n cells in each column
+        for ( var i=1; i<=n; i++ ) {
+          clmn.appendChild( createCell( ) );
+        }
+      }
+      
+			function createCell ( ) {
+			  var cell = document.createElement( 'div' );
+			  cell.className = 'cell';
+			  cell.style.backgroundColor = randomClr( );
+				return cell;
+			}
+			function randomClr( ) {
+				var clr = '#';
+				for ( var i=0; i<3; i++) {
+					var tmp = Math.floor( Math.random( ) * 256 ).toString( 16 );
+					if ( tmp.length<2 )
+						tmp = '0' + tmp;
+					clr = clr + tmp;
+				}
+				return clr;
+			}
+    </script>
+  </main>
+  <footer>
+    <p>developed by kulakov valery</p>
+  </footer>
+</html>

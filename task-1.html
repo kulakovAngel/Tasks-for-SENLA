@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8">
+  <meta name="description" content="task number one">
+  <meta name="keywords" content="senla, React, Redux, task1">
+  <meta name="author" content="kulakov valery">
+  <title>task 1</title>
+	<link rel="stylesheet" href="style.css">
+  <header>
+    <h1>Task 1</h1>
+		<h2>For React + Redux courses</h2>
+  </header>
+  <main>
+    <input type="text" id="fld">
+    <input type="submit" id="bttn">
+    <div id="wrapper"></div>
+		<script>
+			"use strict";
+			var button = document.getElementById( 'bttn' );
+      button.onclick = writeText;
+
+      function writeText( ) {
+        var n = check( ); //cheking the inputed value
+        var parent = document.getElementById( 'wrapper' );
+				var str = '';
+        for ( var i=1; i<=n; i++ ) {
+					str = str + i + ' ' + 'sheep...'
+        }
+				var newDiv = document.createElement( 'div' );
+				parent.appendChild( newDiv ); // based on the screenshot of the task
+				newDiv.innerHTML = str;
+			}
+      
+      function check( ) {
+        var field = document.getElementById( 'fld' );
+        var n = Number( field.value );
+				if ( isNaN( n ) ) {
+          alert( 'Please, input a number!' );
+          field.value = '3';
+          return 0;
+        } else return n;
+      }
+    </script>
+  </main>
+  <footer>
+    <p>developed by kulakov valery</p>
+  </footer>
+</html>

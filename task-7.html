@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8">
+  <meta name="description" content="task number seven">
+  <meta name="keywords" content="senla, React, Redux, task7">
+  <meta name="author" content="kulakov valery">
+  <title>task 7</title>
+  <link rel="stylesheet" href="style.css">
+	<header>
+    <h1>Task 7</h1>
+		<h2>For React + Redux courses</h2>
+  </header>
+  <main>
+		<div class="note">Go to the developer's <i>console</i> for testing</div>
+		<script>
+			"use strict";
+			var val = prompt( 'Input the value for object creating', 5 );
+			
+			//I use constructor usually, but here I did on task
+			//The second variant is at the bottom in the comment
+			
+			//And now, calling the function for task 7
+			var obj = createHolder( val );
+			
+			console.log( obj );
+			console.log( 'obj.getValue(): ' + obj.getValue() );
+			obj.setValue(2);
+			console.log( 'obj.setValue(2);' );
+			console.log( 'obj.getValue(): ' + obj.getValue() );
+
+      
+			function createHolder( value ) {
+				var someObj = {
+					setValue: function( data ) {
+						value = data;
+					},
+					getValue: function( ) {
+						return value;
+					}
+				};
+				return someObj;
+			};
+			
+			/*
+			//I do it like this usually:
+			//
+			// constructor
+			function Obj( data ) {
+					//making getter and setter
+					Object.defineProperty(this, "value", {
+						get: function() {
+							return data;
+						},
+						set: function ( val ) {
+							data = val;
+						}
+					});
+			}
+			var obj = new Obj( val );*/
+    </script>
+  </main>
+  <footer>
+    <p>developed by kulakov valery</p>
+  </footer>
+</html>
